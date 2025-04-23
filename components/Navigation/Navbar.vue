@@ -139,7 +139,7 @@ const toggleCanvas = () => {
 
 async function onLabelChange(newLabel: string) {
     const newValue = assetLabelToValue[newLabel as keyof typeof assetLabelToValue]
-    const path = `/search/${encodeURIComponent(newValue)}/${encodeURIComponent(searchText.value.trim())}`
+    const path = `/${props.searchType}/${encodeURIComponent(newValue)}/${encodeURIComponent(searchText.value.trim())}`
     await router.push(path)
     emit('update:asset', newValue)
 }
@@ -150,7 +150,7 @@ function onInput(event: Event) {
 }
 
 async function onSearch() {
-    const path = `/search/${encodeURIComponent(props.modelValue)}/${encodeURIComponent(searchText.value.trim())}`
+    const path = `/${props.searchType}/${encodeURIComponent(props.modelValue)}/${encodeURIComponent(searchText.value.trim())}`
     await router.push(path)
     emit('update:search', searchText.value)
 }
