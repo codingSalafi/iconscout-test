@@ -62,19 +62,37 @@ onMounted(async () => {
     return
   }
   //if not, 
+  const format = props.playerType === 'lottie' ? 'json' : 'dotlottie'
+  let url: string
   try {
     // here i call our server endpoint
-    const { url } = await $fetch<{ url: string }>(
-      `/api/download/${props.uuid}`,
-      {
-        method: 'POST',
-        body: { format: 'json'   }
-      }
-    )
-    //we save the url in the cache
-    cache.value[props.uuid] = url
-    //and set the lottieUrl to the url
-    lottieUrl.value = url
+    if (props.playerType === 'lottie') {
+      const response = await $fetch<{ url: string }>(
+        `/api/download/${props.uuid}`,
+        {
+          method: 'POST',
+          body: { format: 'json' }
+        }
+      )
+      url = response.url
+      //we save the url in the cache
+      cache.value[props.uuid] = url
+      //and set the lottieUrl to the url 
+      lottieUrl.value = url
+    } else if (props.playerType === 'dotLottie') {
+      const response = await $fetch<{ url: string }>(
+        `/api/download/${props.uuid}`,
+        {
+          method: 'POST',
+          body: { format: 'lottie' }
+        }
+      )
+      url = response.url
+      //we save the url in the cache
+      cache.value[props.uuid] = url
+      //and set the lottieUrl to the url 
+      lottieUrl.value = url
+    }
     //console.log("lottieUrl", lottieUrl.value);
 
   } catch {
