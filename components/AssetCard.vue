@@ -68,7 +68,7 @@ onMounted(async () => {
       `/api/download/${props.uuid}`,
       {
         method: 'POST',
-        body: { format: 'json' }
+        body: { format: 'json'   }
       }
     )
     //we save the url in the cache
