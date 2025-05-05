@@ -90,19 +90,6 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@bootstrap-vue-next/nuxt'
   ],
-  sitemap: {
-    hostname: process.env.MY_PUBLIC_URL,
-    gzip: true,
-    routes: async () => {
-      return []
-    }
-  },
-  robots: {
-    UserAgent: '*',
-    Disallow: '/admin',
-    Allow: '/',
-    Sitemap: `${process.env.MY_PUBLIC_URL}/sitemap.xml`
-  },
   css: ['~/assets/scss/custom.scss'],
   icon: {
     customCollections: [
@@ -153,5 +140,19 @@ export default defineNuxtConfig({
     private: {
       clientSecret: process.env.ICONSCOUT_CLIENT_SECRET || ''
     }
-  }
+  },
+  sitemap: {
+    hostname: process.env.MY_PUBLIC_URL,
+    gzip: true,
+    routes: async () => {
+      return []
+    }
+  },
+  robots: {
+    UserAgent: '*',
+    Disallow: '/admin',
+    Allow: '/',
+    Sitemap: `${process.env.MY_PUBLIC_URL}/sitemap.xml`
+  },
+  
 });
