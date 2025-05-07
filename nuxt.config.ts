@@ -93,7 +93,9 @@ export default defineNuxtConfig({
   image:{
     domains:[
       'cdn.iconscout.com',
-      'cdnl.iconscout.com'
+      'cdnl.iconscout.com',
+      'cdn3d.iconscout.com',
+      'cdni.iconscout.com'
     ]
   },
   css: ['~/assets/scss/custom.scss'],
