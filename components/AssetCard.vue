@@ -55,6 +55,7 @@ const lottieUrl = ref<string | null>(null)
 //console.log("props", props);
 
 onMounted(async () => {
+  
   //first check if we have the url in the cache
   const cached = cache.value[props.uuid]
   if (cached) {

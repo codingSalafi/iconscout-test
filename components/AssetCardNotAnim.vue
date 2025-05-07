@@ -42,7 +42,7 @@ const lottieUrl = ref<string | null>(null)
 
 
 onMounted(async () => {
-  
+
 })
 </script>
 <style>

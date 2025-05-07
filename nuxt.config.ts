@@ -90,6 +90,12 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@bootstrap-vue-next/nuxt'
   ],
+  image:{
+    domains:[
+      'cdn.iconscout.com',
+      'cdnl.iconscout.com'
+    ]
+  },
   css: ['~/assets/scss/custom.scss'],
   icon: {
     customCollections: [
